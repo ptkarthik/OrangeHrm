@@ -8,7 +8,7 @@ import utilitiespackage.BasicUtilities;
 
 public class BasicListeners implements ITestListener, IRetryAnalyzer {
     int retryCount=0;
-    int maxRetryCount=2;
+    int maxRetryCount=0;
     BasicUtilities basicUtilities = new BasicUtilities();
     @Override
     public void onStart(ITestContext context) {

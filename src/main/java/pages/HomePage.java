@@ -1,18 +1,15 @@
 package pages;
 
-import lombok.Data;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-@Data
-public class HomePage extends BasePage {
 
-    @FindBy(xpath = "//input[@name='username']")
-    private WebElement userName;
+@Getter
+public class HomePage extends BasePage{
+    @FindBy(xpath = "//span[@class='oxd-userdropdown-tab']")
+    private WebElement rightMenu;
 
-    @FindBy(xpath = "//input[@name='password']")
-    private WebElement password;
+    @FindBy(xpath = "(//a[@class='oxd-userdropdown-link'])[2]")
+    private WebElement supportLink;
 
-    @FindBy(xpath = "//button")
-    private WebElement loginBtn;
 }

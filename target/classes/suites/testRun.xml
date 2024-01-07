@@ -7,7 +7,8 @@
     <test name="selenium-java">
         <parameter name="browser" value="CHROME"></parameter>
         <classes>
-            <class name="IndustryStandard.MyFirstTest"></class>
+<!--            <class name="IndustryStandard.MyFirstTest"></class>-->
+            <class name="IndustryStandard.MySecondTestUsingDp"></class>
         </classes>
     </test>
 </suite>
