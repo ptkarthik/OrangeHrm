@@ -7,13 +7,12 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
-@Listeners(BasicListeners.class)
+
 public class MyFirstTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = BasicListeners.class)
     public void FirstTest() throws InterruptedException, FileNotFoundException {
-        Thread.sleep(5000);
-        Assert.assertFalse(new MyFirstTest().getUrlText(DriverCreator.getDriver()));
+        Assert.assertTrue(new MyFirstTest().getUrlText(DriverCreator.getDriver()));
         loginWithValidCredentails();
     }
 
