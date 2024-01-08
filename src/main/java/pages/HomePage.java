@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Getter
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
     @FindBy(xpath = "//span[@class='oxd-userdropdown-tab']")
     private WebElement rightMenu;
 

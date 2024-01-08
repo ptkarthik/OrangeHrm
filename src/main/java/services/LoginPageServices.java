@@ -15,11 +15,11 @@ public class LoginPageServices extends BaseServices {
     LoginPage loginPage = new LoginPage();
    BasicUtilities basicUtilities = new BasicUtilities();
 
-    public void loginToHomePage() throws FileNotFoundException {
+    public void loginToHomePage(String userName, String password) throws FileNotFoundException {
         WebDriverWait webDriverWait = new WebDriverWait(DriverCreator.getDriver(), Duration.ofSeconds(10));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(loginPage.getUserName()));
-        loginPage.getUserName().sendKeys(PropLoader.loadProperties().getProperty("username"));
-        loginPage.getPassword().sendKeys(PropLoader.loadProperties().getProperty("password"));
+        loginPage.getUserName().sendKeys(userName);
+        loginPage.getPassword().sendKeys(password);
         basicUtilities.clickWithJs(loginPage.getLoginBtn());
     }
 

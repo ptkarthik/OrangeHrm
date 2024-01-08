@@ -1,6 +1,7 @@
 package utilitiespackage;
 
 import driver.DriverCreator;
+import listeners.BasicListeners;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,8 +10,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
+import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.SecureRandom;
@@ -32,13 +38,24 @@ public class BasicUtilities {
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("mm-dd-yyyy");
         String dateTimeNow = localDateTime.format(dateTimeFormatter);
-        Path path = new File(System.getProperty("user.dir") + "/screenshots/" +
-                result.getName() + "__" + dateTimeNow + "__" + createRandomLong() + ".png").toPath();
         try {
-            Files.copy(screenShotFile.toPath(), path);
-        } catch (Exception e) {
+            Files.copy(screenShotFile.toPath(), new File(System.getProperty("user.dir") + "/screenshots/" +
+                    result.getName() +"_"  + createRandomLong()+"_"+dateTimeNow  + ".png").toPath());
+        } catch ( Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void takeScreenshotUsingAShot(ITestResult result) throws IOException {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("mm-dd-yyyy");
+        String dateTimeNow = localDateTime.format(dateTimeFormatter);
+        AShot ashot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000));
+        Screenshot screenshot = ashot.takeScreenshot(DriverCreator.getDriver(),
+                BasicListeners.getElementToCapture().get());
+        ImageIO.write(screenshot.getImage(),"PNG", new File((System.getProperty("user.dir") +
+                "/screenshots/" +
+                result.getName() + "__" + dateTimeNow + "__" + createRandomLong())));
     }
 
     public long createRandomLong() {
