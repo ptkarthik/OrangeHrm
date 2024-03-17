@@ -1,15 +1,13 @@
 package listeners;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebElement;
-import org.testng.IRetryAnalyzer;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 import utilitiespackage.BasicUtilities;
 
 import java.io.IOException;
 
-public class BasicListeners implements ITestListener, IRetryAnalyzer {
+public class BasicListeners extends TestListenerAdapter implements ITestListener, IRetryAnalyzer  {
 
     public static ThreadLocal<WebElement> getElementToCapture() {
         return elementToCapture;
@@ -22,7 +20,7 @@ public class BasicListeners implements ITestListener, IRetryAnalyzer {
         elementToCapture.set(element);
     }
     int retryCount=0;
-    int maxRetryCount=0;
+    int maxRetryCount=2;
     BasicUtilities basicUtilities = new BasicUtilities();
     @Override
     public void onStart(ITestContext context) {
@@ -32,12 +30,15 @@ public class BasicListeners implements ITestListener, IRetryAnalyzer {
     @Override
     public void onTestSuccess(ITestResult result) {
         System.out.println(result.getName() + " is Success");
+        Allure.addAttachment("The Test case is success",result.getTestName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
 
         basicUtilities.takeScreenShot(result);
+        Throwable exception = result.getThrowable();
+        Allure.addAttachment("The Test result",exception.getMessage());
     }
 
 

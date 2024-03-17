@@ -1,0 +1,1 @@
+{"uuid":"4d9577e5-1e76-4a9e-a817-a8572a312782","name":"IndustryStandard.BaseTest.Setup","children":["3258d42d-ab69-426e-90b4-b1d41bf03597"],"description":"","befores":[{"name":"Setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1705144121607,"stop":1705144125853}],"afters":[],"start":1705144121607,"stop":1705144125853}

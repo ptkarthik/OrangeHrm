@@ -39,5 +39,4 @@ public class BaseTest {
         System.out.println(url);
         return url.equalsIgnoreCase("OrangeHRM");
     }
-
 }
