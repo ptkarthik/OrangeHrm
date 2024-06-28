@@ -25,7 +25,7 @@ public class BaseTest {
 
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(@Optional String hex) {
         DriverCreator.getDriver().quit();
     }
 

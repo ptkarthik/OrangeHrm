@@ -1,0 +1,56 @@
+{
+  "company": {
+    "name": "TechCorp",
+    "established": 2001,
+    "locations": [
+      {
+        "city": "San Francisco",
+        "state": "CA",
+        "employees": [
+          {
+            "name": "Alice Smith",
+            "age": 29,
+            "role": "Software Engineer",
+            "skills": ["Java", "Python", "C++"]
+          },
+          {
+            "name": "Bob Brown",
+            "age": 35,
+            "role": "Project Manager",
+            "skills": ["Management", "Scrum", "Agile"]
+          }
+        ]
+      },
+      {
+        "city": "New York",
+        "state": "NY",
+        "employees": [
+          {
+            "name": "Charlie Johnson",
+            "age": 40,
+            "role": "Data Scientist",
+            "skills": ["R", "Python", "Machine Learning"]
+          }
+        ]
+      }
+    ],
+    "departments": [
+      {
+        "name": "Engineering",
+        "head": {
+          "name": "Diana Green",
+          "age": 45
+        },
+        "budget": 500000
+      },
+      {
+        "name": "Marketing",
+        "head": {
+          "name": "Evan Black",
+          "age": 50
+        },
+        "budget": 300000
+      }
+    ]
+  }
+}

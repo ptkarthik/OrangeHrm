@@ -1,6 +1,5 @@
 package services;
 
-import configuration.PropLoader;
 import driver.DriverCreator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +12,7 @@ import java.time.Duration;
 public class LoginPageServices extends BaseServices {
 
     LoginPage loginPage = new LoginPage();
-   BasicUtilities basicUtilities = new BasicUtilities();
+    BasicUtilities basicUtilities = new BasicUtilities();
 
     public void loginToHomePage(String userName, String password) throws FileNotFoundException {
         WebDriverWait webDriverWait = new WebDriverWait(DriverCreator.getDriver(), Duration.ofSeconds(10));

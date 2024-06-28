@@ -1,8 +1,5 @@
 package driver;
 
 public enum DriverDetails {
-    CHROME,
-    FIREFOX
-    ,
-    EDGE
+    CHROME, FIREFOX, EDGE
 }

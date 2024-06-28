@@ -1,0 +1,92 @@
+{
+  "company": {
+    "name": "Tech Innovators Inc.",
+    "location": "Silicon Valley",
+    "departments": [
+      {
+        "name": "Engineering",
+        "manager": {
+          "name": "Jane Smith",
+          "employee_id": "E001",
+          "contact": {
+            "email": "jane.smith@techinnovators.com",
+            "phone": "123-456-7890"
+          }
+        },
+        "employees": [
+          {
+            "name": "John Doe",
+            "employee_id": "E002",
+            "position": "Senior Software Engineer",
+            "contact": {
+              "email": "john.doe@techinnovators.com",
+              "phone": "123-456-7891"
+            },
+            "projects": [
+              {
+                "name": "Project Alpha",
+                "role": "Lead Developer",
+                "duration": "12 months"
+              },
+              {
+                "name": "Project Beta",
+                "role": "Developer",
+                "duration": "6 months"
+              }
+            ]
+          },
+          {
+            "name": "Emily Davis",
+            "employee_id": "E003",
+            "position": "Software Engineer",
+            "contact": {
+              "email": "emily.davis@techinnovators.com",
+              "phone": "123-456-7892"
+            },
+            "projects": [
+              {
+                "name": "Project Gamma",
+                "role": "Developer",
+                "duration": "8 months"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Marketing",
+        "manager": {
+          "name": "Michael Brown",
+          "employee_id": "M001",
+          "contact": {
+            "email": "michael.brown@techinnovators.com",
+            "phone": "123-456-7893"
+          }
+        },
+        "employees": [
+          {
+            "name": "Sophia Johnson",
+            "employee_id": "M002",
+            "position": "Marketing Specialist",
+            "contact": {
+              "email": "sophia.johnson@techinnovators.com",
+              "phone": "123-456-7894"
+            },
+            "campaigns": [
+              {
+                "name": "Summer Launch",
+                "role": "Coordinator",
+                "duration": "3 months"
+              },
+              {
+                "name": "Holiday Special",
+                "role": "Manager",
+                "duration": "4 months"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
