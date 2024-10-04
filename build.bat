@@ -9,17 +9,25 @@ if not exist bin (
     mkdir bin
 )
 
-:: Compiling the Java program
-javac -d bin -cp %CLASSPATH% main\IndustryStandard\MyFirstTest.java main\driver\DriverCreator.java main\listeners\BasicListeners.java
+:: Compiling the Java programs
+echo Compiling main classes...
+javac -d bin -cp %CLASSPATH% main\driver\DriverCreator.java main\listeners\BasicListeners.java
 if %errorlevel% neq 0 (
-    echo Build failed!
+    echo Build failed for main classes!
+    exit /b 1
+)
+
+echo Compiling test classes...
+javac -d bin -cp "%CLASSPATH%;bin" test\java\IndustryStandard\MyFirstTest.java
+if %errorlevel% neq 0 (
+    echo Build failed for test classes!
     exit /b 1
 ) else (
     echo Build successful!
 )
 
-:: Running the compiled Java program
-echo Running the program...
+:: Running the compiled Java test program
+echo Running the test program...
 cd bin
 java -cp "%CLASSPATH%;" IndustryStandard.MyFirstTest
 
