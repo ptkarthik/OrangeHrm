@@ -15,6 +15,4 @@ public class MyFirstTest extends BaseTest {
         Assert.assertTrue(new MyFirstTest().getUrlText(DriverCreator.getDriver()));
         loginWithValidCredentails();
     }
-
-
 }
