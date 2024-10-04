@@ -13,6 +13,6 @@ if %errorlevel% neq 0 (
 :: Running the compiled Java program
 echo Running the program...
 cd bin
-java IndustryStandard.MyFirstTest
+java -cp "bin;path\to\testng.jar" IndustryStandard.MyFirstTest
 
 echo Build process completed!
