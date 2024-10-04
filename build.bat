@@ -1,7 +1,7 @@
 @echo off
 echo Starting the build process...
 
-:: Example build step: compiling a Java program
+:: Compiling the Java program
 javac -d bin src\test\java\IndustryStandard\MyFirstTest.java
 if %errorlevel% neq 0 (
     echo Build failed!
@@ -12,6 +12,7 @@ if %errorlevel% neq 0 (
 
 :: Running the compiled Java program
 echo Running the program...
-java -d bin src\test\java\IndustryStandard\MyFirstTest.java
+cd bin
+java IndustryStandard.MyFirstTest
 
 echo Build process completed!
