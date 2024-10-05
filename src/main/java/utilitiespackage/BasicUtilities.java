@@ -17,7 +17,6 @@ import java.security.SecureRandom;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.TimeUnit;
 
 public class BasicUtilities {
 
@@ -43,7 +42,7 @@ public class BasicUtilities {
 
     public long createRandomLong() {
         SecureRandom secureRandom = new SecureRandom();
-        return secureRandom.nextLong(1, 10000);
+        return secureRandom.nextLong();
     }
 
     public void mouseHover(WebElement element) {

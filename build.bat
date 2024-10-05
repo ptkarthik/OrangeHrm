@@ -1,34 +1,36 @@
 @echo off
-echo Starting the build process...
+setlocal enabledelayedexpansion
 
-:: Set classpath to include TestNG and other dependencies
-set CLASSPATH=bin;path\to\testng.jar;path\to\other\dependencies\*.jar
+:: Ensure that Maven and Java are set in the environment
+set MAVEN_HOME=C:\Program Files\Apache\Maven
+set JAVA_HOME=C:\Program Files\Java\jdk-21
 
-:: Creating the output directory if it doesn't exist
-if not exist bin (
-    mkdir bin
-)
+:: Add Maven and Java to the system PATH
+set PATH=%MAVEN_HOME%\bin;%JAVA_HOME%\bin;%PATH%
 
-:: Compiling the Java programs
-echo Compiling main classes...
-javac -d bin -cp %CLASSPATH% main\driver\DriverCreator.java main\listeners\BasicListeners.java
-if %errorlevel% neq 0 (
-    echo Build failed for main classes!
+:: Set the paths
+set PROJECT_ROOT=%~dp0
+
+:: Change to the project root directory
+cd /d %PROJECT_ROOT%
+
+:: Run Maven build
+echo Running Maven build...
+mvn clean install
+
+if errorlevel 1 (
+    echo Maven build failed!
     exit /b 1
 )
 
-echo Compiling test classes...
-javac -d bin -cp "%CLASSPATH%;bin" test\java\IndustryStandard\MyFirstTest.java
-if %errorlevel% neq 0 (
-    echo Build failed for test classes!
+:: Run the TestNG tests
+echo Running TestNG tests...
+mvn test
+
+if errorlevel 1 (
+    echo Test execution failed!
     exit /b 1
-) else (
-    echo Build successful!
 )
 
-:: Running the compiled Java test program
-echo Running the test program...
-cd bin
-java -cp "%CLASSPATH%;" IndustryStandard.MyFirstTest
-
-echo Build process completed!
+echo Build and test execution completed successfully.
+endlocal
