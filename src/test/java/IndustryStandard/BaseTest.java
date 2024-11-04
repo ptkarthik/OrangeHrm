@@ -1,5 +1,6 @@
 package IndustryStandard;
 
+import configuration.SeleniumGridManager;
 import driver.DriverCreator;
 import driver.DriverDetails;
 import driver.DriverSetter;
@@ -11,13 +12,15 @@ import org.testng.annotations.Parameters;
 import services.LoginPageServices;
 
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 
 public class BaseTest {
 
 
     @Parameters("browser")
     @BeforeMethod
-    public void Setup(@Optional("CHROME") String browser) {
+    public void Setup(@Optional("CHROME") String browser) throws MalformedURLException {
+        SeleniumGridManager seleniumGridManager = new SeleniumGridManager();
         DriverCreator.setDriver(DriverSetter.selectDriverType(DriverDetails.valueOf(browser)));
         WebDriver driver = DriverCreator.getDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");

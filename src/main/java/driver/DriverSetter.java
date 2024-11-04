@@ -2,16 +2,22 @@ package driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DriverSetter {
 
 
-    public static WebDriver selectDriverType(DriverDetails driverDetails) {
+    public static WebDriver selectDriverType(DriverDetails driverDetails) throws MalformedURLException {
         switch (driverDetails) {
             case CHROME -> {
-                return returnChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                return new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
             }
 
             case FIREFOX -> {
