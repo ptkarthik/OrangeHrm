@@ -11,7 +11,7 @@ public class SeleniumGridManager {
     // Start the Selenium Hub
     static {
         ProcessBuilder hubBuilder = new ProcessBuilder(
-                "java", "-jar", SELENIUM_SERVER_PATH, "standalone"
+                "java", "-jar", SELENIUM_SERVER_PATH, "hub"
         );
         hubBuilder.inheritIO(); // Inherit IO to see output in the console
         try {
