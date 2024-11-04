@@ -1,0 +1,3 @@
+code smell 
+flatmap
+various ways through requirement. ill learn that

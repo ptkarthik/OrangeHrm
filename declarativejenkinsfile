@@ -1,0 +1,42 @@
+pipeline {
+    agent any  // Use any available agent
+
+    stages {
+        // Checkout the code from SCM
+        stage('Checkout') {
+            steps {
+                checkout scm  // Checkout code from your Git repository
+            }
+        }
+        
+        // Build the project using Maven
+        stage('Build') {
+            steps {
+                bat 'build.bat'  // Run your batch file to build the project
+            }
+        }
+        
+        // Run TestNG tests
+        stage('Test') {
+            steps {
+                bat 'mvn test -DsuiteXmlFile=testng.xml'  // Run the tests specified in testng.xml
+            }
+        }
+        
+        // Notify success
+        stage('Notify') {
+            steps {
+                echo 'Build and Tests completed successfully!'  // Notification stage
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executed successfully!'  // Message on success
+        }
+        failure {
+            echo 'Pipeline failed!'  // Message on failure
+        }
+    }
+}
